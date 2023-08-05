@@ -2,6 +2,7 @@ package application;
 
 public class TemperaturaConversion {
 
+	private static String Dato;
 	private double DatoInicial;
 	private double DatoInicialConvertido;
 	private double DatoFinal;
@@ -9,22 +10,23 @@ public class TemperaturaConversion {
 	
 	
 	
+public static void main(String[] args) {
+	
 
-		   switch (DatoEntrada) {
+		   switch (Dato) {
 		   case "Celcius(°C)":
-			   UnidadEntrada = "°C";
+			  
 			   break; 
 		   case "Kelvin(°K)":
-			   UnidadEntrada = "°K";
+
 			   break;
 		   case "Farenheit(°F)":
-			   UnidadEntrada = "°F";
+
 			   break;
 		   case"Rankine(°R)":
-			   UnidadEntrada = "°R";
+
 			   break;
 		   }
-		   break;
 	/*   case "MASA":
 		   switch (DatoSalida) {
 		   	case "Strone(st)":
@@ -140,6 +142,6 @@ public class TemperaturaConversion {
 		   break;
 	}*/
 	
+}
+}
 
-}
-}

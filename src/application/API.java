@@ -40,4 +40,4 @@
 	}
 	//https://api.metalpriceapi.com/v1/latest?api_key=cc5acb80f2a111074f265b823927c73e&base=USD&currencies=EUR,MXN,GBP,JPY,KRW,COP,USD
 	// {"success":true,"base":"USD","timestamp":1688533220,"rates":{"COP":4148.205,"EUR":0.9194485,"GBP":0.787065,"JPY":144.52053605,"KRW":1300.01255452,"MXN":17.05595781,"USD":1}}
-}
+
