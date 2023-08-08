@@ -1,17 +1,18 @@
 package application;
-
 import javafx.fxml.FXML;
-
 import javafx.scene.control.Button;
-
 import javafx.scene.control.TextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-
 import javafx.scene.control.Label;
-
 import javafx.scene.control.ComboBox;
-
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
 public class SampleController {
 	@FXML
 	private Button Convertir;
@@ -424,7 +425,6 @@ catch(Exception x){
 		
 		   case "TEMPERATURA":
 			   resultado = TemperatureConversion(Number,DatoEntrada,DatoSalida);
-			    
 			   break;
 			case "MASA":
 				resultado = MasaConversion(Number,DatoEntrada,DatoSalida);
@@ -477,14 +477,87 @@ catch(Exception x){
 		return ValorFinal;
 	}
 	public double DivisaConversion(double Number, String DatoEntrada, String DatoSalida) {
-		double ValorInicial;
-		double ValorConvertido;
-		double ValorFinal;
-		ValorInicial=Number;
+		double ValorInicial = Number;
+		double ValorConvertido = 0;
+		double ValorFinal = 0;
+		double valor = 0;
+		String UnidadAPI;
 		
-		Number = ValorInicial;
-		return Number;
-		
+
+		switch (DatoEntrada) {
+		   case "EURO(EUR)":
+				UnidadEntrada = "EUR";
+		   		ValorConvertido = ValorInicial;
+		   		break;
+		   case "Dolar Estadounidense(USD)":
+				UnidadEntrada = "USD";
+				UnidadAPI= UnidadEntrada;
+				valor = API(UnidadAPI);
+		   		 ValorConvertido = ValorInicial/valor;
+		   		break; 
+		   case "Peso Mexicano (MXN)":
+				UnidadEntrada = "MXN";
+				UnidadAPI= UnidadEntrada;
+				valor = API(UnidadAPI);
+		   		 ValorConvertido = ValorInicial/valor;
+		   		break; 
+ 
+		   case "Yen Japones(JPY)":
+				UnidadEntrada = "JPY";
+				UnidadAPI= UnidadEntrada;
+				valor = API(UnidadAPI);
+		   		 ValorConvertido = ValorInicial/valor;
+		   		break; 
+		   case "Won Coreano(KRW)":
+				UnidadEntrada = "KRW";
+				UnidadAPI= UnidadEntrada;
+				valor = API(UnidadAPI);
+		   		 ValorConvertido = ValorInicial/valor;
+		   		break; 
+		   case "Libra Esterlina(GBP)":
+				UnidadEntrada = "GBP";
+				UnidadAPI= UnidadEntrada;
+				valor = API(UnidadAPI);
+		   		ValorConvertido = ValorInicial/valor;
+		   		break; 
+   	 }
+		switch (DatoSalida) {
+		   case "Dolar Estadounidense(USD)":
+				UnidadSalida = "USD";
+				UnidadAPI= UnidadSalida;
+				valor = API(UnidadAPI);
+		   		 ValorFinal = ValorConvertido*valor;
+		   		break; 
+		   case "Peso Mexicano (MXN)":
+			   UnidadSalida = "MXN";
+				UnidadAPI= UnidadSalida;
+				valor = API(UnidadAPI);
+		   		 ValorFinal = ValorConvertido*valor;
+		   		break; 
+		   case "EURO(EUR)":
+			   UnidadSalida = "EUR";
+			   ValorFinal = ValorConvertido;
+		   		break; 
+		   case "Yen Japones(JPY)":
+			   UnidadSalida = "JPY";
+				UnidadAPI= UnidadSalida;
+				valor = API(UnidadAPI);
+		   		 ValorFinal = ValorConvertido*valor;
+		   		break; 
+		   case "Won Coreano(KRW)":
+			   UnidadSalida = "KRW";
+				UnidadAPI= UnidadSalida;
+				valor = API(UnidadAPI);
+		   		 ValorFinal = ValorConvertido*valor;
+		   		break; 
+		   case "Libra Esterlina(GBP)":
+			   UnidadSalida = "GBP";
+				UnidadAPI= UnidadSalida;
+				valor = API(UnidadAPI);
+		   		 ValorFinal = ValorConvertido*valor;
+		   		break; 
+		    }
+		return ValorFinal;
 	}
 	public double LongitudConversion(double Number, String DatoEntrada, String DatoSalida) {
 		double ValorInicial;
@@ -530,6 +603,39 @@ catch(Exception x){
 			
 		}
 	}
+	public double API(String UnidadEntrada) {
+	        JSONObject jsonObject = new JSONObject();
+	        JSONObject ratesObject = new JSONObject();
+	        String Currency;
+	        double rate;
+
+	        try {
+	            URL url = new URL("https://api.frankfurter.app/latest");
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setRequestMethod("GET");
+	            conn.connect();
+
+	            int responseCode = conn.getResponseCode();
+	            if (responseCode != 200) {
+	                throw new RuntimeException("Ocurrio un error:" + responseCode);
+	            } 
+	            else {
+		            StringBuilder informationString = new StringBuilder();
+		            Scanner scanner = new Scanner(url.openStream());
+		            while (scanner.hasNext()) {
+	                informationString.append(scanner.nextLine());
+                }
+                scanner.close();
+                jsonObject = new JSONObject(informationString.toString());
+                ratesObject = jsonObject.getJSONObject("rates");
+	            }
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        Currency = UnidadEntrada;
+	        rate = ratesObject.getDouble(Currency);
+	        return rate;
+	    }
 @FXML
 	public void CambiarAction(ActionEvent event) {
 	
