@@ -6,6 +6,9 @@ import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ComboBox;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
@@ -560,33 +563,196 @@ catch(Exception x){
 		return ValorFinal;
 	}
 	public double LongitudConversion(double Number, String DatoEntrada, String DatoSalida) {
-		double ValorInicial;
-		double ValorConvertido;
-		double ValorFinal;
+		double ValorInicial = Number;
+		double ValorConvertido = 0;
+		double ValorFinal = 0;
 		ValorInicial=Number;
-		
-		Number = ValorInicial;
-		return Number;
-		
-	}
+		switch (DatoEntrada) {
+		   case "Metro(m)":
+			   ValorConvertido = ValorInicial;
+		   		break; 
+		   case "Kilometro(km)":
+			   ValorConvertido = ValorInicial*1000;
+		   		break; 
+		   case "Centimetro(cm)":
+			   ValorConvertido = ValorInicial*.01;
+		   		break; 
+		   case "Decimetro(dm)":
+			   ValorConvertido = ValorInicial*.1;
+		   		break; 
+		   case "Milimetro(mm)": 
+			   ValorConvertido = ValorInicial*.001;
+		   		break; 
+		   case "Micrometro(μm)":
+			   ValorConvertido = ValorInicial*.000001;
+		   		break; 
+		   case "Nanometro(nm)":
+			   ValorConvertido = ValorInicial*.000000001;
+		   		break;    
+		   case "Yarda(yd)":
+			   ValorConvertido = ValorInicial*0.9144;
+		   		break; 
+		   case "Pie(ft)":
+			   ValorConvertido = ValorInicial*0.3048;
+		   		break; 
+		   case "Pulgada(in)":
+			   ValorConvertido = ValorInicial*0.0254;
+		   		break; 
+		   case "Milla(mi)":
+			   ValorConvertido = ValorInicial*1609.34;
+		   		break; 
+		   }
+		switch (DatoEntrada) {
+		   case "Metro(m)":
+			   ValorFinal = ValorConvertido;
+		   		break; 
+		   case "Kilometro(km)":
+			   ValorFinal = ValorConvertido/1000;
+		   		break; 
+		   case "Centimetro(cm)":
+			   ValorFinal = ValorConvertido/.01;
+		   		break; 
+		   case "Decimetro(dm)":
+			   ValorFinal = ValorConvertido/.1;
+		   		break; 
+		   case "Milimetro(mm)": 
+			   ValorFinal = ValorConvertido/.001;
+		   		break; 
+		   case "Micrometro(μm)":
+			   ValorFinal = ValorConvertido/.000001;
+		   		break; 
+		   case "Nanometro(nm)":
+			   ValorFinal = ValorConvertido/.000000001;
+		   		break;    
+		   case "Yarda(yd)":
+			   ValorFinal = ValorConvertido/0.9144;
+		   		break; 
+		   case "Pie(ft)":
+			   ValorFinal = ValorConvertido/0.3048;
+		   		break; 
+		   case "Pulgada(in)":
+			   ValorFinal = ValorConvertido/0.0254;
+		   		break; 
+		   case "Milla(mi)":
+			   ValorFinal = ValorConvertido/1609.34;
+		   		break; 
+		   }
+
+		return ValorFinal;
+	}		
 	public double TiempoConversion(double Number, String DatoEntrada, String DatoSalida) {
-		double ValorInicial;
-		double ValorConvertido;
-		double ValorFinal;
+		double ValorInicial = Number;
+		double ValorConvertido = 0;
+		double ValorFinal = 0;
 		ValorInicial=Number;
-		
-		Number = ValorInicial;
-		return Number;
+		switch (DatoEntrada) {
+		   case "Segundos":
+				ValorConvertido = ValorInicial;
+		   		break;
+		   case "Minutos":
+				ValorConvertido = ValorInicial*60;
+		   		break; 
+		   case "Horas":
+				ValorConvertido = ValorInicial*60*60;
+		   		break; 
+		   case "Días":
+				ValorConvertido = ValorInicial*60*60*24;
+		   		break; 
+		   case "Años":
+			   ValorConvertido = ValorInicial*60*60*24*365.242;
+	   		break; 
+		   case "Meses":
+			   ValorConvertido = ValorInicial*60*60*24*30.4368;
+		   		break;
+		}
+		switch (DatoSalida) {
+		   case "Segundos":
+			   ValorFinal = ValorConvertido;
+		   		break;
+		   case "Minutos":
+			   ValorFinal = ValorConvertido/60;
+		   		break; 
+		   case "Horas":
+			   ValorFinal = ValorConvertido/60/60;
+		   		break; 
+		   case "Días":
+			   ValorFinal = ValorConvertido/60/60/24;
+		   		break; 
+		   case "Años":
+			   ValorFinal = ValorConvertido/60/60/24/365.242;
+	   		break; 
+		   case "Meses":
+			   ValorFinal = ValorConvertido/60/60/24/30.4368;
+		   		break;
+		}
+		return ValorFinal;
+	
 		
 	}
 	public double MasaConversion(double Number, String DatoEntrada, String DatoSalida) {
-		double ValorInicial;
-		double ValorConvertido;
-		double ValorFinal;
+		double ValorInicial = Number;
+		double ValorConvertido = 0;
+		double ValorFinal = 0;
 		ValorInicial=Number;
-		
-		Number = ValorInicial;
-		return Number;
+		   switch (DatoEntrada) {
+		   	case "Gramos(g)":
+				ValorConvertido = ValorInicial;
+				break; 
+		   	case "Strone(st)":
+				ValorConvertido = ValorInicial*6350.29;
+		   		break; 
+		   	case "Libra(lb)":
+				ValorConvertido = ValorInicial*453.592;
+				break; 
+		   	case "Onza(oz)":
+				ValorConvertido = ValorInicial*28.3495;
+				break; 
+		   	case "Tonelada(T)":
+				ValorConvertido = ValorInicial*1000000;
+		   		break; 
+		   	case "Kilogramo(kg)":
+				ValorConvertido = ValorInicial*1000;
+				break; 
+		   	case "Centigramos(cg)":
+				ValorConvertido = ValorInicial*.01;
+		   		break; 
+		   	case "Miligramo(mg)":
+				ValorConvertido = ValorInicial*.001;
+		   		break; 
+		   	case "Microgramo(μg)":
+				ValorConvertido = ValorInicial*.000001;
+		   		break; 
+		   }
+		   switch (DatoSalida) {
+		   	case "Gramos(g)":
+		   		ValorFinal = ValorConvertido;
+				break; 
+		   	case "Strone(st)":
+		   		ValorFinal = ValorConvertido/6350.29;
+		   		break; 
+		   	case "Libra(lb)":
+		   		ValorFinal = ValorConvertido/453.592;
+				break; 
+		   	case "Onza(oz)":
+		   		ValorFinal = ValorConvertido/28.3495;
+				break; 
+		   	case "Tonelada(T)":
+		   		ValorFinal = ValorConvertido/1000000;
+		   		break; 
+		   	case "Kilogramo(kg)":
+		   		ValorFinal = ValorConvertido/1000;
+				break; 
+		   	case "Centigramos(cg)":
+		   		ValorFinal = ValorConvertido/.01;
+		   		break; 
+		   	case "Miligramo(mg)":
+		   		ValorFinal = ValorConvertido/.001;
+		   		break; 
+		   	case "Microgramo(μg)":
+		   		ValorFinal = ValorConvertido/.000001;
+		   		break; 
+		   }
+		return ValorFinal;
 		
 	}
 	@FXML
@@ -596,8 +762,11 @@ catch(Exception x){
 		NumberString = NumberInput.getText();
 		Number = Double.parseDouble(NumberString);
 		Convertido = Conversion(Number, DatoEntrada, DatoSalida);
-		Result = String.valueOf(Convertido);
+		BigDecimal bigDecimal = new BigDecimal(Convertido).setScale(4, RoundingMode.HALF_UP);
+		Result = String.valueOf(bigDecimal);
 		NumerOutput.setText(Result);
+		
+		System.out.println(bigDecimal.doubleValue());
 	}
 		catch(Exception a){
 			
@@ -638,6 +807,18 @@ catch(Exception x){
 	    }
 @FXML
 	public void CambiarAction(ActionEvent event) {
-	
+		String cambioUnidad = "";
+		double cambioValor = 0;
+		cambioUnidad = UnidadEntrada; 
+		UnidadEntrada = UnidadSalida;
+		UnidadSalida = cambioUnidad;
+		cambioValor = Number;
+	  
+	    String tempUnidadEntrada = UnidadEntrada;
+	    String tempUnidadSalida = UnidadSalida;
+	    UnidadEntrada = tempUnidadSalida;
+	    UnidadSalida = tempUnidadEntrada;
+	    UnitInput.setText(UnidadEntrada);
+	    UnitOutput.setText(UnidadSalida);
 	}
 }

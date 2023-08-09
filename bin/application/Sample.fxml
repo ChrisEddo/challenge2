@@ -8,8 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="325.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SampleController">
    <children>
-      <Button id="Convertir" fx:id="Convertir" layoutX="50.0" layoutY="286.0" mnemonicParsing="false" onAction="#ConvertirAction" text="Convertir" />
-      <Button id="Cambiar" fx:id="Cambiar" layoutX="199.0" layoutY="286.0" mnemonicParsing="false" onAction="#CambiarAction" text="Cambiar" />
+      <Button id="Convertir" fx:id="Convertir" layoutX="118.0" layoutY="286.0" mnemonicParsing="false" onAction="#ConvertirAction" text="Convertir" />
       <ComboBox id="Unit" fx:id="Unit" layoutX="8.0" layoutY="21.0" onAction="#UnitAction" prefHeight="25.0" prefWidth="285.0" promptText="Selecciona Tipo de Unidad " />
       <ComboBox id="TextInput" fx:id="TextInput" layoutX="70.0" layoutY="71.0" onAction="#TextInputAction" prefHeight="25.0" prefWidth="161.0" promptText="Unidad de Entrada" />
       <ComboBox id="TextOutput" fx:id="TextOutput" layoutX="70.0" layoutY="175.0" onAction="#TextOutputAction" prefHeight="25.0" prefWidth="161.0" promptText="Unidad de Salida" />
