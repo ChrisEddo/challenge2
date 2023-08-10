@@ -805,20 +805,4 @@ catch(Exception x){
 	        rate = ratesObject.getDouble(Currency);
 	        return rate;
 	    }
-@FXML
-	public void CambiarAction(ActionEvent event) {
-		String cambioUnidad = "";
-		double cambioValor = 0;
-		cambioUnidad = UnidadEntrada; 
-		UnidadEntrada = UnidadSalida;
-		UnidadSalida = cambioUnidad;
-		cambioValor = Number;
-	  
-	    String tempUnidadEntrada = UnidadEntrada;
-	    String tempUnidadSalida = UnidadSalida;
-	    UnidadEntrada = tempUnidadSalida;
-	    UnidadSalida = tempUnidadEntrada;
-	    UnitInput.setText(UnidadEntrada);
-	    UnitOutput.setText(UnidadSalida);
-	}
 }

@@ -1,1 +1,11 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root {
+    -fx-background-color: #6BCBA4;
+}
+
+.header {
+    -fx-background-color: #08596A;
+}
+
+.ComboBox {
+	-fx-background-color: #9EE6AA;
+}

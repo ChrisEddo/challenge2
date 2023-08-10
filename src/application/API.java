@@ -43,6 +43,10 @@
 	        for (String currencyCode : ratesObject.keySet()) {
 	            double rate = ratesObject.getDouble(currencyCode);
 	        }
+	        for (String currencyCode : ratesObject.keySet()) {
+	            double rate = ratesObject.getDouble(currencyCode);
+	            System.out.println(currencyCode + ": " + rate);
+	        }
 	    }
 	}
 
